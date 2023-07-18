@@ -1,4 +1,4 @@
-# quizz_app
+# Quiz_app
 
 A new Flutter project.
 
