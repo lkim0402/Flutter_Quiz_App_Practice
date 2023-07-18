@@ -34,7 +34,6 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       //we switch to result screen
       setState(() {
-        selectedAnswers = []; //after everything is over, we empty the array
         activeScreen = 'results_screen';
       });
     }
@@ -52,7 +51,9 @@ class _QuizState extends State<Quiz> {
       //chooseAnswer will get executed whenever an answer gets picked in QuestionScreen
     }
     if (activeScreen == 'results_screen') {
-      screenWidget = ResultScreen(chosenAnswers: selectedAnswers);
+      screenWidget =
+          ResultScreen(chosenAnswers: selectedAnswers, startQuiz: switchScreen);
+      selectedAnswers = []; //after everything is over, we empty the array
     }
     //We pass in selected Answers
 

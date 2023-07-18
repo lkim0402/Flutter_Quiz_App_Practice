@@ -45,8 +45,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
               'Question $screenIndex',
               style: GoogleFonts.lato(
                   color: const Color.fromARGB(255, 214, 196, 255),
-                  fontSize: 15),
+                  fontSize: 25),
             ),
+            const SizedBox(height: 30),
             Text(
               currentQuestion.text, //getting the question
               style: GoogleFonts.lato(
