@@ -15,11 +15,13 @@ class ResultsSummary extends StatelessWidget {
         child: Column(
           children: summaryData.map((data) {
             return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   width: 45,
                   height: 45,
-                  margin: const EdgeInsets.all(30),
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.fromLTRB(30, 10, 30, 0),
                   decoration: BoxDecoration(
                     color: data['user_answer'] == data['correct_answer']
                         ? Colors.blue
@@ -53,13 +55,18 @@ class ResultsSummary extends StatelessWidget {
                         //const SizedBox(height: 3),
                         Text((data['user_answer'] as String),
                             style: GoogleFonts.lato(
-                                color: const Color.fromARGB(255, 186, 151, 247),
+                                color: data['user_answer'] ==
+                                        data['correct_answer']
+                                    ? const Color.fromARGB(255, 124, 196, 255)
+                                    : const Color.fromARGB(255, 255, 111, 140),
                                 fontSize: 18)),
                         //const SizedBox(height: 3),
-                        Text((data['correct_answer'] as String),
-                            style: GoogleFonts.lato(
-                                color: const Color.fromARGB(255, 124, 196, 255),
-                                fontSize: 18)),
+                        Text(
+                          (data['correct_answer'] as String),
+                          style: GoogleFonts.lato(
+                              color: const Color.fromARGB(255, 124, 196, 255),
+                              fontSize: 18),
+                        ),
                       ],
                     ),
                   ),

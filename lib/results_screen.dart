@@ -61,6 +61,7 @@ class ResultScreen extends StatelessWidget {
 
             ResultsSummary(summaryData),
             //the outline of all the answers and stuff
+
             const SizedBox(
               height: 30,
             ),
