@@ -1,6 +1,7 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:quizz_app/questions_screen.dart';
+import 'package:quizz_app/results_screen.dart';
 import 'package:quizz_app/start_screen.dart';
 import 'package:quizz_app/data/questions.dart';
 
@@ -34,7 +35,7 @@ class _QuizState extends State<Quiz> {
       //we switch to result screen
       setState(() {
         selectedAnswers = []; //after everything is over, we empty the array
-        activeScreen = 'start_screen';
+        activeScreen = 'results_screen';
       });
     }
   }
@@ -50,6 +51,10 @@ class _QuizState extends State<Quiz> {
       screenWidget = QuestionScreen(chooseAnswer);
       //chooseAnswer will get executed whenever an answer gets picked in QuestionScreen
     }
+    if (activeScreen == 'results_screen') {
+      screenWidget = ResultScreen(chosenAnswers: selectedAnswers);
+    }
+    //We pass in selected Answers
 
     return MaterialApp(
       home: Scaffold(
